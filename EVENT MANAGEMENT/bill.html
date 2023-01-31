@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Billing
+</title>
+<script>
+
+
+function bill()
+{
+var cookiearr=new Array();
+cookiearr=document.cookie.split(':');
+document.writeln("<center><h1>Welcome To Billing</h1></center>");
+document.write("<center><table border=3><tr> <th> Description <th> Price <th> Quantity <th> Total ");
+var total2=0;
+var total3=0;
+for(var i=1; i<cookiearr.length;i++)
+{
+var cookiedata=cookiearr[i].split(',');
+document.writeln("<tr><td>" + cookiedata[0] +"<td>" + cookiedata[1]+"<td>" + cookiedata[2]+"<td>" +cookiedata[3]);
+
+total2=total2+parseFloat(cookiedata[2]);
+
+total3=total3+parseFloat(cookiedata[3]);
+}
+document.write("<tr><td>Total<td><td>" +total2 + "<td>" + total3);
+document.write("</table></center>");
+}
+function myFunction() {
+  document.body.style.backgroundColor = "rgb(60, 89, 97)";
+}
+</script>
+
+</head>
+<body onload="bill(); myFunction();">
+<form method="post" action="billing_email_template.html" name="bill1">
+</form>
+</body>
+</html>
